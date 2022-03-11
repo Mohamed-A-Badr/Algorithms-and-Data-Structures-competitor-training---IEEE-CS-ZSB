@@ -13,7 +13,6 @@ typedef long double ld;
 #define MOD 1000000007
 #define E 2.718281828459045
 #define PI acos(-1)
-const int MAX = 1000000;
 
 void fast(){
 #ifndef ONLINE_JUDGE
@@ -23,41 +22,19 @@ void fast(){
     fast_ios
 }
 
-int main(){
+int main() {
     fast();
     //fast_ios
-    int n, p, k;
-    cin >> n >> p >> k;
-    stack<int> st;
-    int cnt = 0;
-    for(int i = p - 1; i >= 1; i--){
-        if(cnt == k) break;
-        st.push(i);
-        cnt++;
-    }
-    if(!st.empty() && st.top() == 1){
-        while(!st.empty()){
-            cout << st.top() << " ";
-            st.pop();
-        }
-    }else if(!st.empty() && st.top() > 1){
-        cout << "<< ";
-        while(!st.empty()){
-            cout << st.top() << " ";
-            st.pop();
+    int a, b, c;
+    cin >> a >> b >> c;
+    for (int i = 1; i <= 100000; i++) {
+        a %= b;
+        a *= 10;
+        if (a / b == c) {
+            cout << i << el;
+            return 0;
         }
     }
-    cout << "(" << p << ") ";
-    if(p == n) return 0;
-    else {
-        cnt = 0;
-        int mx = 0;
-        for(int i = p + 1; i <= n; i++, cnt++){
-            if(cnt == k) break;
-            cout << i << " ";
-            mx = max(mx, i);
-        }
-        if(mx < n) cout << ">>" << el;
-    }
+    cout << "-1" << el;
     return 0;
 }
