@@ -13,7 +13,6 @@ typedef long double ld;
 #define MOD 1000000007
 #define E 2.718281828459045
 #define PI acos(-1)
-const int MAX = 1000000;
 
 void fast(){
 #ifndef ONLINE_JUDGE
@@ -23,12 +22,22 @@ void fast(){
     fast_ios
 }
 
-int main(){
+int main() {
     fast();
     //fast_ios
-    string s;
-    cin >> s;
-    cout <<  (regex_match(s, regex("[0-9a-zA-Z_]{1,16}@[0-9a-zA-Z_]{1,16}(\\.[0-9a-zA-Z_]{1,16})*(/[0-9a-zA-Z_]{1,16})?"))
-              ? "YES" : "NO") << el;
+    int n, k, t;
+    cin >> n >> k >> t;
+    int sum = (t * n * k) / 100;
+    for (int i = 1; i <= n; i++) {
+        if (sum > k) {
+            cout << k << " ";
+            sum = sum - k;
+        } else if (sum > 0) {
+            cout << sum << " ";
+            sum = 0;
+        } else {
+            cout << "0 ";
+        }
+    }
     return 0;
 }
